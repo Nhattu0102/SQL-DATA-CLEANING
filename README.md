@@ -60,8 +60,11 @@ WHERE age > 100
 ```
 - Step 4: Remove Null data
 ```sql
-DELETE FROM club_member_info_cleaned 
-WHERE martial_status = ''
+UPDATE club_member_info_cleaned 
+SET martial_status = TRIM(martial_status) 
+
+UPDATE club_member_info_cleaned 
+SET martial_status = 'Null' WHERE martial_status LIKE ''
 ```
 - Final: We have a new table
 
